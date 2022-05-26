@@ -1,0 +1,31 @@
+.clock {
+    margin: 30px;
+    width: 360px;
+    height: 360px;
+    position: relative;
+    border-radius: 50%;
+    background-image: url('../img/manometer_bkg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 5px solid black;
+    box-shadow: 0 0 15px 25px black;
+
+    &__screw {
+        height: 35px;
+        width: 35px;
+        background-image: url('../img/Screw-Top-PNG-HD-Quality.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: absolute;
+        transform: translateX(-50%);
+        top: 65%;
+
+        &.--first {
+            left: 75%;
+        }
+
+        &.--second {
+            left: 25%;
+        }
+    }
+}

@@ -1,0 +1,34 @@
+.clock {
+  margin: 30px;
+  width: 360px;
+  height: 360px;
+  position: relative;
+  border-radius: 50%;
+  background-image: url("../img/manometer_bkg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 5px solid black;
+  -webkit-box-shadow: 0 0 15px 25px black;
+          box-shadow: 0 0 15px 25px black;
+}
+
+.clock__screw {
+  height: 35px;
+  width: 35px;
+  background-image: url("../img/Screw-Top-PNG-HD-Quality.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  top: 65%;
+}
+
+.clock__screw.--first {
+  left: 75%;
+}
+
+.clock__screw.--second {
+  left: 25%;
+}
+/*# sourceMappingURL=clock.css.map */

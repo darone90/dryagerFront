@@ -1,0 +1,32 @@
+.clock-hand {
+  height: 7px;
+  width: 150px;
+  background-color: #8d03af;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform-origin: 0 -50%;
+          transform-origin: 0 -50%;
+  -webkit-transform: translate(-100%, -50%);
+          transform: translate(-100%, -50%);
+  border-radius: 50% 25% 25% 50%;
+  -webkit-box-shadow: 0 0 55px 10px #8d03af;
+          box-shadow: 0 0 55px 10px #8d03af;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.clock-hand__dot {
+  width: 25px;
+  height: 25px;
+  background-color: red;
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  -webkit-transform: translate(50%, -50%);
+          transform: translate(50%, -50%);
+  border-radius: 50%;
+  -webkit-box-shadow: 0 0 55px 5px red;
+          box-shadow: 0 0 55px 5px red;
+}
+/*# sourceMappingURL=clockHand.css.map */

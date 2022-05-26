@@ -1,0 +1,27 @@
+$mainColor: rgb(141, 3, 175);
+
+.clock-hand {
+    height: 7px;
+    width: 150px;
+    background-color: $mainColor;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: 0 -50%;
+    transform: translate(-100%, -50%);
+    border-radius: 50% 25% 25% 50%;
+    box-shadow: 0 0 55px 10px $mainColor;
+    transition: 0.3s;
+
+    &__dot {
+        width: 25px;
+        height: 25px;
+        background-color: red;
+        position: absolute;
+        top: 50%;
+        right: 0%;
+        transform: translate(50%, -50%);
+        border-radius: 50%;
+        box-shadow: 0 0 55px 5px red;
+    }
+}
