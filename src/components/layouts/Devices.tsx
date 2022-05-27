@@ -19,7 +19,7 @@ const Devices = (props: Props) => {
     React.useEffect(() => {
         (async () => {
             const data = await getData('loop');
-            setIsProcessStart(data.process);
+            setIsProcessStart(data.status);
             setLoop(Number(data.loop))
         })()
     }, [])
@@ -35,8 +35,8 @@ const Devices = (props: Props) => {
         await fetch(`${address}/devices/${device}/${action}`)
     }
 
-    const allStop = async (action: boolean) => {
-        await fetch(`${address}/devices/all/stop`)
+    const allStop = async () => {
+        await fetch(`${address}/devices/all/0`)
     }
 
     const updateLoop = async () => {
@@ -45,25 +45,37 @@ const Devices = (props: Props) => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ loop: newLoop })
         })
+        setLoop(newLoop)
+        setIsProcessStart(false)
+        setManual(false)
+    }
+
+    const autoManualHandler = async () => {
+        setManual(prev => !prev);
+        if (isProcessStart && !manual) {
+            await processHandle('stop')
+        }
+        if (!isProcessStart && manual) {
+            await processHandle('start')
+        }
+        await allStop();
     }
 
     return (
         <div>
             <div className={manual ? '_manual' : '_auto'}>{manual ? 'Tryb ręczny' : 'Tryb automatyczny'}</div>
+            <div className={isProcessStart ? '_process-run' : '_process-stoped'}>{isProcessStart ? 'Proces uruchomiony...' : 'Proces zatrzymany'}</div>
             <div>
                 <p>Aktualny czas pętli:{loop}</p>
                 <label>Nowy czas pętli: <input type="number" value={newLoop} onChange={(e => setNewLoop(Number(e.target.value)))} /></label>
                 <button onClick={updateLoop}>Zapisz</button>
             </div>
             <div>
-                <button disabled={!isProcessStart} onClick={() => processHandle('start')}>Proces start</button>
-                <button disabled={isProcessStart} onClick={() => processHandle('stop')}>Proces stop</button>
+                <button disabled={isProcessStart || manual} onClick={() => processHandle('start')}>Proces start</button>
+                <button disabled={!isProcessStart} onClick={() => processHandle('stop')}>Proces stop</button>
                 <button disabled={!isProcessStart} onClick={() => processHandle('restart')}>Proces restart</button>
-                <button onClick={() => {
-                    setManual(prev => !prev);
-                    processHandle(manual ? 'start' : 'stop')
-                    allStop(manual ? true : false);
-                }}>{manual ? 'Włącz tryb auto' : 'Włącz tryb ręcny'}</button>
+                <button
+                    onClick={async () => { await autoManualHandler() }}>{manual ? 'Włącz tryb auto' : 'Włącz tryb ręczny'}</button>
             </div>
             <div>
                 <label>
@@ -84,14 +96,14 @@ const Devices = (props: Props) => {
             </div>
             {manual ?
                 <div>
-                    <button onClick={() => devicesHandle('cool1', 'start')}>Załącz układ chłodzenia 1</button>
-                    <button onClick={() => devicesHandle('cool1', 'stop')}>Wyłącz układ chłodzenia 1</button>
-                    <button onClick={() => devicesHandle('cool2', 'start')}>Załącz układ chłodzenia 2</button>
-                    <button onClick={() => devicesHandle('cool2', 'stop')}>Wyłącz układ chłodzenia 2</button>
-                    <button onClick={() => devicesHandle('pomp', 'start')}>Załącz układ nawilżania</button>
-                    <button onClick={() => devicesHandle('pomp', 'stop')}>Wyłącz układ nawilżania</button>
-                    <button onClick={() => devicesHandle('vent', 'start')}>Załącz układ wentylacji</button>
-                    <button onClick={() => devicesHandle('vent', 'stop')}>Wyłącz układ wentylacji</button>
+                    <button onClick={() => devicesHandle('coolingModule1', '0')}>Załącz układ chłodzenia 1</button>
+                    <button onClick={() => devicesHandle('coolingModule1', '1')}>Wyłącz układ chłodzenia 1</button>
+                    <button onClick={() => devicesHandle('coolingModule2', '0')}>Załącz układ chłodzenia 2</button>
+                    <button onClick={() => devicesHandle('coolingModule2', '1')}>Wyłącz układ chłodzenia 2</button>
+                    <button onClick={() => devicesHandle('pumpModule', '0')}>Załącz układ nawilżania</button>
+                    <button onClick={() => devicesHandle('pumpModule', '1')}>Wyłącz układ nawilżania</button>
+                    <button onClick={() => devicesHandle('ventModule', '0')}>Załącz układ wentylacji</button>
+                    <button onClick={() => devicesHandle('ventModule', '1')}>Wyłącz układ wentylacji</button>
                 </div>
                 : null
             }

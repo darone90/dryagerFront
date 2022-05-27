@@ -6,3 +6,10 @@ export interface Income {
     drying: string;
     message: string;
 }
+
+export interface HumiData {
+    humiSetPoint: number;
+    humiTolleracne: number;
+    humiActiveTime: number;
+    humiInterval: number;
+}
