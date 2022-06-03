@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { w3cwebsocket } from "websocket";
+import { key } from './app.config';
 
 import { Income } from './types/incomeTypes';
 
 import Devices from './components/layouts/Devices';
 import Temperature from './components/layouts/Temperature';
 import Humidity from './components/layouts/Humidity';
+import Video from './components/layouts/Video';
 import Spinner from './components/common/spinner/Spinner';
 
-const client = new w3cwebsocket('ws://192.168.8.155:3030', 'dryager-protocol');
+const client = new w3cwebsocket('ws://192.168.8.155:3030', `dryager-protocol-${key}`);
 
 
 function App() {
@@ -19,7 +21,6 @@ function App() {
   useEffect(() => {
     client.onopen = () => {
       console.log('connection aproved')
-
     }
 
     client.onmessage = (message) => {
@@ -32,6 +33,7 @@ function App() {
   if (!income) return <Spinner />
   return (
     <>
+      <Video />
       <Devices data={income} />
       <Temperature temp={Number(income.message.substring(0, 4))} />
       <Humidity humi={Number(income.message.substring(5, 9))} />
