@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { getData } from '../../global/function';
 import { address } from '../../global/address';
+
+import { ControllContext } from '../../App';
 
 import Manometer from '../common/manometer/Manometer';
 import Button from '../common/button/Button';
@@ -10,6 +12,8 @@ interface Props {
 }
 
 const Temperature = (props: Props) => {
+
+    const context = useContext(ControllContext);
 
     const [tempSet, setTempSet] = useState<number>(0);
     const [tempHis, setTempHis] = useState<number>(0);
@@ -49,25 +53,30 @@ const Temperature = (props: Props) => {
             <h2>Właściwości temperatury</h2>
             <strong>Aktualna temperatura</strong>
             <Manometer degree={props.temp} />
-            <strong>Temperatura wartość zadana</strong>
-            <div>
-                <label>
-                    Podaj wartość zadaną
-                    <input type="number" value={tempSet} onChange={e => setTempSet(Number(e.target.value))} />
-                </label>
-                <p>Aktualna zadana wartość</p>
-                <div>{actualTempSet}</div>
-            </div>
-            <strong>Histereza wartość zadana</strong>
-            <div>
-                <label>
-                    Podaj wartość zadaną
-                    <input type="number" value={tempHis} onChange={e => setTempHis(Number(e.target.value))} />
-                </label>
-                <p>Aktualna zadana wartość</p>
-                <div>{actualTempHis}</div>
-            </div>
-            <Button name="Wprowadź zmiany" func={sendData} />
+            {context?.control ?
+                null
+                : <>
+                    <strong>Temperatura wartość zadana</strong>
+                    <div>
+                        <label>
+                            Podaj wartość zadaną
+                            <input type="number" value={tempSet} onChange={e => setTempSet(Number(e.target.value))} />
+                        </label>
+                        <p>Aktualna zadana wartość</p>
+                        <div>{actualTempSet}</div>
+                    </div>
+                    <strong>Histereza wartość zadana</strong>
+                    <div>
+                        <label>
+                            Podaj wartość zadaną
+                            <input type="number" value={tempHis} onChange={e => setTempHis(Number(e.target.value))} />
+                        </label>
+                        <p>Aktualna zadana wartość</p>
+                        <div>{actualTempHis}</div>
+                    </div>
+                    <Button name="Wprowadź zmiany" func={sendData} />
+                </>
+            }
         </div>
     )
 }

@@ -1,4 +1,7 @@
 import * as React from 'react';
+
+import { ControllContext } from '../../App';
+
 import { Income } from '../../types/incomeTypes';
 import { address } from '../../global/address';
 import { getData } from '../../global/function';
@@ -8,6 +11,7 @@ interface Props {
 }
 
 const Devices = (props: Props) => {
+    const context = React.useContext(ControllContext)
 
     const { data } = props;
 
@@ -21,8 +25,15 @@ const Devices = (props: Props) => {
             const data = await getData('loop');
             setIsProcessStart(data.status);
             setLoop(Number(data.loop))
-        })()
-    }, [])
+        })();
+
+        if (manual || !isProcessStart) {
+            context?.setControlType(true)
+        } else {
+            context?.setControlType(false)
+        }
+
+    }, [context, manual, isProcessStart])
 
     const processHandle = async (action: string) => {
 
@@ -46,8 +57,6 @@ const Devices = (props: Props) => {
             body: JSON.stringify({ loop: newLoop })
         })
         setLoop(newLoop)
-        setIsProcessStart(false)
-        setManual(false)
     }
 
     const autoManualHandler = async () => {
@@ -65,11 +74,14 @@ const Devices = (props: Props) => {
         <div>
             <div className={manual ? '_manual' : '_auto'}>{manual ? 'Tryb ręczny' : 'Tryb automatyczny'}</div>
             <div className={isProcessStart ? '_process-run' : '_process-stoped'}>{isProcessStart ? 'Proces uruchomiony...' : 'Proces zatrzymany'}</div>
-            <div>
+            {context?.control ?
+                null
+                : <div>
                 <p>Aktualny czas pętli:{loop}</p>
                 <label>Nowy czas pętli: <input type="number" value={newLoop} onChange={(e => setNewLoop(Number(e.target.value)))} /></label>
                 <button onClick={updateLoop}>Zapisz</button>
             </div>
+            }
             <div>
                 <button disabled={isProcessStart || manual} onClick={() => processHandle('start')}>Proces start</button>
                 <button disabled={!isProcessStart} onClick={() => processHandle('stop')}>Proces stop</button>

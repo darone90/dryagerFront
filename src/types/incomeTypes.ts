@@ -13,3 +13,9 @@ export interface HumiData {
     humiActiveTime: number;
     humiInterval: number;
 }
+
+export interface AirData {
+    ventInterval: number;
+    ventTime: number;
+    dry: number;
+}

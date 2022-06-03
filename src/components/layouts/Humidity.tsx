@@ -1,7 +1,9 @@
-import React, { ChangeEvent, useEffect, useState } from 'react';
+import React, { ChangeEvent, useEffect, useState, useContext } from 'react';
 import { getData } from '../../global/function';
 import { HumiData } from '../../types/incomeTypes';
 import { address } from '../../global/address';
+
+import { ControllContext } from '../../App';
 
 import Manometer from '../common/manometer/Manometer';
 import Button from '../common/button/Button';
@@ -18,6 +20,8 @@ const initialState = {
 }
 
 const Humidity = (props: Props) => {
+
+    const context = useContext(ControllContext);
 
     const [actualHumi, setActualHumi] = useState<HumiData>(initialState);
     const [newActulaHumi, setNewActualHumi] = useState<HumiData>(initialState);
@@ -49,7 +53,10 @@ const Humidity = (props: Props) => {
             <h2>Właściwości wilgotności</h2>
             <strong>Aktualna wilgotność</strong>
             <Manometer degree={props.humi} />
-            <strong>Wilgotność wartość zadana:</strong>
+            {context?.control ?
+                null
+                : <>
+                    <strong>Wilgotność wartość zadana:</strong>
             <div>
                 <label>
                     Podaj wartość zadaną
@@ -86,6 +93,7 @@ const Humidity = (props: Props) => {
                 <div>{actualHumi.humiInterval}</div>
             </div>
             <Button name="Zapisz zmiany" func={updateHandler} />
+                </>}
         </div>
     );
 };
