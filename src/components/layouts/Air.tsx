@@ -46,11 +46,11 @@ const Air = () => {
 
 
     return (
-        <div>
+        <div className='Air'>
+            <h2>Właściwości predmuchu i suszenia</h2>
             {context?.control ?
                 null
-                : <>
-                    <h2>Właściwości predmuchu i suszenia</h2>
+                : <div className='Air__parameters'>
                     <strong>Wymiana powietrza:</strong>
                     <div>
                         <label>
@@ -79,7 +79,7 @@ const Air = () => {
                         <div>{actualAir.dry}</div>
                     </div>
                     <Button name="Zapisz zmiany" func={updateHandler} />
-                </>}
+                </div>}
         </div>
     );
 };

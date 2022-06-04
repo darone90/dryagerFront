@@ -1,0 +1,199 @@
+.Devices {
+  width: 30%;
+  padding: 10px;
+  margin: 5px;
+  -webkit-box-shadow: rgba(50, 81, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+          box-shadow: rgba(50, 81, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  border-radius: 20px;
+  background-color: white;
+}
+
+.Devices h2 {
+  text-align: center;
+  border-bottom: 2px solid black;
+  line-height: 30px;
+  -webkit-box-shadow: rgba(50, 50, 93, 0.25) 0px 40px 20px 10px;
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 40px 20px 10px;
+}
+
+.Devices__status {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.Devices__status div:nth-child(1) {
+  width: 45%;
+  border: 1px solid black;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.Devices__status div:nth-child(1)._auto {
+  background-color: green;
+}
+
+.Devices__status div:nth-child(1)._manual {
+  background-color: red;
+}
+
+.Devices__status div:nth-child(2) {
+  width: 45%;
+  border: 1px solid black;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.Devices__status div:nth-child(2)._process-run {
+  background-color: green;
+}
+
+.Devices__status div:nth-child(2)._process-stop {
+  background-color: red;
+}
+
+.Devices__control {
+  margin: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.Devices__control button {
+  width: 23%;
+  height: 3rem;
+  background-color: white;
+  cursor: pointer;
+}
+
+.Devices__state label {
+  margin: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.Devices__state label div {
+  margin-right: 20px;
+  border: 2px solid black;
+  padding: 5px;
+  width: 10%;
+  text-align: center;
+}
+
+.Devices__state label div.off {
+  background-color: red;
+}
+
+.Devices__state label div.on {
+  background-color: green;
+}
+
+.Devices__manual-control {
+  margin: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.Devices__manual-control button {
+  width: 24%;
+  margin-top: 10px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.Devices .Air {
+  margin-top: 50px;
+}
+
+.Devices .Air h2 {
+  margin-bottom: 60px;
+}
+
+.Devices .Air__parameters strong {
+  padding-bottom: 15px;
+  border-bottom: 2px solid black;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.Devices .Air__parameters div {
+  margin: 10px 0 40px;
+}
+
+.Devices .Air__parameters div label {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.Devices .Air__parameters div label input {
+  margin-left: 10px;
+}
+
+.Devices .Air__parameters div p {
+  text-align: center;
+}
+
+.Devices .Air__parameters div div {
+  text-align: center;
+  border: 2px solid black;
+  padding: 1rem 0;
+}
+
+.Devices .Air__parameters .Button-global {
+  margin-left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  margin-bottom: 10px;
+}
+
+.Devices__loop {
+  border-top: 2px solid black;
+  padding-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.Devices__loop .Button-global {
+  margin-top: 15px;
+}
+/*# sourceMappingURL=devices.css.map */

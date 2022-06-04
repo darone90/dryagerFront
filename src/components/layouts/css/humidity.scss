@@ -1,0 +1,54 @@
+.Humidity {
+    width: 30%;
+    padding: 10px;
+    margin: 5px;
+    box-shadow: rgba(50, 81, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    border-radius: 20px;
+    background-color: white;
+    h2 {
+        text-align: center;
+        border-bottom: 2px solid black;
+        line-height: 30px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 40px 20px 10px
+    }
+    strong {
+        width: 100%;
+        display: block;
+        text-align: center;
+    }
+    .__Mano {
+        .clock{
+            margin: 3rem auto;
+        }
+    }
+    &__parameters {
+        strong {
+            padding-bottom: 15px;
+            border-bottom: 2px solid black;
+        }
+        div {
+            margin: 10px 0 40px;
+            label {
+                display: block;
+                width: 100%;
+                text-align: center;
+                input {
+                    margin-left: 10px;
+                }
+            }
+            p {
+                text-align: center;
+            }
+            div {
+                text-align: center;
+                border: 2px solid black;
+                padding: 1rem 0;
+            }
+        }
+        .Button-global {
+            margin-left: 50%;
+            transform: translate(-50%,0);
+            margin-bottom: 10px;
+        }
+    }
+}

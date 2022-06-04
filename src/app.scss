@@ -1,0 +1,10 @@
+
+.Main-windows-wrap {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    justify-content: space-around;
+    background: rgb(247,120,0);
+    background: linear-gradient(139deg, rgba(247,120,0,1) 0%, rgba(255,249,36,1) 47%, rgba(123,166,0,1) 100%); 
+}

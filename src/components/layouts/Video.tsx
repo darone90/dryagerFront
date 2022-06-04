@@ -1,6 +1,8 @@
 import React, { useState, ChangeEvent, MouseEvent } from 'react';
 import { address } from '../../global/address';
 
+import './css/video.css'
+
 interface colors {
     red: number;
     green: number;
@@ -34,15 +36,15 @@ const Video = () => {
     }
 
     return (
-        <>
-
+        <div className='Video'>
             <h2>Moduł kamery:</h2>
             <button onClick={() => camera('start')}>Podgląd</button>
             <button onClick={() => camera('stop')}>Zatrzymaj</button>
             {isVideoOn ?
-                <>
-                <img src='http://192.168.8.155:3040/stream.mjpg' alt='videostream' style={{ height: '100px', width: '100px', border: '1px solid black', display: 'block' }} />
+                <div className='Video__module'>
+                    <img src='http://192.168.8.155:3040/stream.mjpg' alt='videostream' />
                     <div>
+                        <h3>Kolory podświetlenia</h3>
                         <label>
                             Zielony:
                             <input type="range" name="green" min='1' max='255' onChange={actualizeData} />
@@ -57,10 +59,10 @@ const Video = () => {
                         </label>
                         <button onClick={colorChange}>Wprowadź kolory</button>
                     </div>
-                </>
+                </div>
                 : null
             }
-        </>
+        </div>
 
     )
 }

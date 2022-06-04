@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from 'react';
 import { getData } from '../../global/function';
 import { address } from '../../global/address';
 
+import './css/temperature.css'
+
 import { ControllContext } from '../../App';
 
 import Manometer from '../common/manometer/Manometer';
@@ -56,6 +58,7 @@ const Temperature = (props: Props) => {
             {context?.control ?
                 null
                 : <>
+                    <div className='Temperature__parameters'>
                     <strong>Temperatura wartość zadana</strong>
                     <div>
                         <label>
@@ -75,6 +78,7 @@ const Temperature = (props: Props) => {
                         <div>{actualTempHis}</div>
                     </div>
                     <Button name="Wprowadź zmiany" func={sendData} />
+                    </div>
                 </>
             }
         </div>

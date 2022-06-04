@@ -3,6 +3,8 @@ import { getData } from '../../global/function';
 import { HumiData } from '../../types/incomeTypes';
 import { address } from '../../global/address';
 
+import './css/humidity.css'
+
 import { ControllContext } from '../../App';
 
 import Manometer from '../common/manometer/Manometer';
@@ -49,13 +51,14 @@ const Humidity = (props: Props) => {
     }
 
     return (
-        <div>
+        <div className='Humidity'>
             <h2>Właściwości wilgotności</h2>
             <strong>Aktualna wilgotność</strong>
             <Manometer degree={props.humi} />
             {context?.control ?
                 null
-                : <>
+                :
+                <div className='Humidity__parameters'>
                     <strong>Wilgotność wartość zadana:</strong>
             <div>
                 <label>
@@ -93,7 +96,9 @@ const Humidity = (props: Props) => {
                 <div>{actualHumi.humiInterval}</div>
             </div>
             <Button name="Zapisz zmiany" func={updateHandler} />
-                </>}
+                </div>
+
+            }
         </div>
     );
 };

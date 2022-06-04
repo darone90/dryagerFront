@@ -2,6 +2,8 @@ import React, { useEffect, useState, createContext } from 'react';
 import { w3cwebsocket } from "websocket";
 import { key } from './app.config';
 
+import './app.css'
+
 import { Income } from './types/incomeTypes';
 import { Context } from './types/contextTypes';
 
@@ -9,7 +11,6 @@ import Devices from './components/layouts/Devices';
 import Temperature from './components/layouts/Temperature';
 import Humidity from './components/layouts/Humidity';
 import Video from './components/layouts/Video';
-import Air from './components/layouts/Air';
 import Spinner from './components/common/spinner/Spinner';
 
 const client = new w3cwebsocket('ws://192.168.8.155:3030', `dryager-protocol-${key}`);
@@ -46,11 +47,12 @@ function App() {
         control,
         setControlType
       }}>
-      <Video />
-      <Devices data={income} />
-      <Temperature temp={Number(income.message.substring(0, 4))} />
-      <Humidity humi={Number(income.message.substring(5, 9))} />
-        <Air />
+        <div className='Main-windows-wrap'>
+          <Temperature temp={Number(income.message.substring(0, 4))} />
+          <Devices data={income} />
+          <Humidity humi={Number(income.message.substring(5, 9))} />
+          <Video />
+        </div>
       </ControllContext.Provider>
     </>
   );

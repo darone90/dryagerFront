@@ -1,4 +1,5 @@
 import React from 'react';
+import './Button.css'
 
 interface Props {
     name: string
@@ -7,7 +8,7 @@ interface Props {
 
 const Button = (props: Props) => {
     return (
-        <button onClick={props.func}>{props.name}</button>
+        <button onClick={props.func} className='Button-global'>{props.name}</button>
     )
 }
 

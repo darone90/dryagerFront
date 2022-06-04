@@ -8,7 +8,7 @@ interface Props {
 const Manometer = (props: Props) => {
 
   return (
-    <div>
+    <div className='__Mano'>
       <Clock deg={props.degree} />
     </div>
   );

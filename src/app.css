@@ -1,0 +1,17 @@
+.Main-windows-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  background: #f77800;
+  background: linear-gradient(139deg, #f77800 0%, #fff924 47%, #7ba600 100%);
+}
+/*# sourceMappingURL=app.css.map */

@@ -1,0 +1,142 @@
+.Devices {
+    width: 30%;
+    padding: 10px;
+    margin: 5px;
+    box-shadow: rgba(50, 81, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    border-radius: 20px;
+    background-color: white;
+    h2 {
+        text-align: center;
+        border-bottom: 2px solid black;
+        line-height: 30px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 40px 20px 10px
+    }
+    &__status {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        div:nth-child(1) {
+            width: 45%;
+            border: 1px solid black;
+            text-align: center;
+            padding: 10px 0;
+            &._auto {
+                background-color: green;
+            }
+            &._manual {
+                background-color: red;
+            }
+        }
+        div:nth-child(2) {
+            width: 45%;
+            border: 1px solid black;
+            text-align: center;
+            padding: 10px 0;
+            &._process-run {
+                background-color: green;
+            }
+            &._process-stop {
+                background-color: red;
+            }
+        }
+    }
+    &__control {
+        margin: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        button {
+            width: 23%;
+            height: 3rem;
+            background-color: white;
+            cursor: pointer;
+        }
+    }
+
+
+    &__state {
+        label {
+            margin: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            div{
+                margin-right: 20px;
+                border: 2px solid black;
+                padding: 5px;
+                width: 10%;
+                text-align: center;
+                &.off {
+                    background-color: red;
+                }
+                &.on{
+                    background-color: green;
+                }
+            }
+        }
+    }
+
+    &__manual-control {
+        margin: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        button {
+            width: 24%;
+            margin-top: 10px;
+            background-color: white;
+            cursor: pointer;
+        }
+    }
+
+    .Air {
+        margin-top: 50px;
+        h2 {
+            margin-bottom: 60px;
+        }
+        &__parameters {
+            strong {
+                padding-bottom: 15px;
+                border-bottom: 2px solid black;
+                display: block;
+                width: 100%;
+                text-align: center;
+            }
+            div {
+                margin: 10px 0 40px;
+                label {
+                    display: block;
+                    width: 100%;
+                    text-align: center;
+                    input {
+                        margin-left: 10px;
+                    }
+                }
+                p {
+                    text-align: center;
+                }
+                div {
+                    text-align: center;
+                    border: 2px solid black;
+                    padding: 1rem 0;
+                }
+            }
+            .Button-global {
+                margin-left: 50%;
+                transform: translate(-50%,0);
+                margin-bottom: 10px;
+            }
+        }
+    }
+    &__loop {
+        border-top: 2px solid black;
+        padding-top: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .Button-global {
+            margin-top: 15px;
+        }
+    }
+}
