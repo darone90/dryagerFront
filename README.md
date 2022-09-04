@@ -1,46 +1,47 @@
-# Getting Started with Create React App
+## Operating modes
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+User can choose two operating modes:
 
-## Available Scripts
+- manual
 
-In the project directory, you can run:
+> all executive devices are turning on manually by user
 
-### `npm start`
+- auto
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+> devices are controlled by the system according to adjusted parameters
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## What we can adjust ?
 
-### `npm test`
+User can adjust target temperature and humidity. In auto mode system will try set given parameters inside chamber by using executive devices.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Also we can set loop refreshing time. From this parameters depends how fast system read parameters and try to set given parameters.
 
-### `npm run build`
+## Technological stack
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This Application was made with create react app written in TypeScript
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## How to start ?
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+After repository cloning use node package manager to install required packages. Tap in your console:
 
-### `npm run eject`
+- npm install
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+After that you can start developer server:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- npm start
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Or build static production version:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+-npm run build
 
-## Learn More
+## Language
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Application interface is in Polish
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Contact
+
+To reach me use my email address: pileckidariusz90@gmail.com
+
+## Copyrights
+
+All code in this repository are free to use
