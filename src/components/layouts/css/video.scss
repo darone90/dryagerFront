@@ -12,15 +12,15 @@
         box-shadow: rgba(50, 50, 93, 0.25) 0px 40px 20px 10px
     }
     img {
-        height: '300px';
-        width: '500px';
-        border: '1px solid black';
-        display: 'block';
+        height: 300px;
+        width: 500px;
+        border: 1px solid black;
+        display: block;
         margin-right: 100px;
     }
     &__module {
         display: flex;
-        flex-direction: row-reverse;
+        flex-direction: row-reverse; 
         justify-content: space-between;
         div {
             display: flex;

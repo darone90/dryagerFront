@@ -17,10 +17,10 @@
 }
 
 .Video img {
-  height: '300px';
-  width: '500px';
-  border: '1px solid black';
-  display: 'block';
+  height: 300px;
+  width: 500px;
+  border: 1px solid black;
+  display: block;
   margin-right: 100px;
 }
 
